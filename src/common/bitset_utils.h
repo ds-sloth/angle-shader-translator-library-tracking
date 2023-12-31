@@ -723,7 +723,7 @@ constexpr BitSetArray<N>::BitSetArray(uint64_t value)
             value_type elemValue =
                 value & priv::BaseBitSetType::Mask(priv::kDefaultBitSetSize).bits();
             mBaseBitSetArray[i] = priv::BaseBitSetType(elemValue);
-            value >>= priv::kDefaultBitSetSize;
+            value >>= (priv::kDefaultBitSetSize < 64) ? priv::kDefaultBitSetSize : 0;
         }
         value_type elemValue = value & kLastElementMask;
         mBaseBitSetArray[i]  = priv::BaseBitSetType(elemValue);
