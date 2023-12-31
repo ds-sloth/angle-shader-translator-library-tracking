@@ -800,6 +800,7 @@ const std::string &GetObjectCode(const ShHandle handle);
 // handle: Specifies the compiler
 const BinaryBlob &GetObjectBinaryBlob(const ShHandle handle);
 
+#if 0
 // Returns a full binary for a compiled shader, to be loaded with glShaderBinary during runtime.
 // Parameters:
 // handle: Specifies the compiler
@@ -808,6 +809,7 @@ bool GetShaderBinary(const ShHandle handle,
                      size_t numStrings,
                      const ShCompileOptions &compileOptions,
                      ShaderBinaryBlob *const binaryOut);
+#endif
 
 // Returns a (original_name, hash) map containing all the user defined names in the shader,
 // including variable names, function names, struct names, and struct field names.

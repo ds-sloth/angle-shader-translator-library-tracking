@@ -106,6 +106,7 @@ int ReplaceAllSubstrings(std::string *str,
 // Takes a snake_case string and turns it into camelCase.
 std::string ToCamelCase(const std::string &str);
 
+#if 0
 // Split up a string parsed from an environment variable.
 std::vector<std::string> GetStringsFromEnvironmentVarOrAndroidProperty(const char *varName,
                                                                        const char *propertyName,
@@ -117,6 +118,7 @@ std::vector<std::string> GetCachedStringsFromEnvironmentVarOrAndroidProperty(
     const char *varName,
     const char *propertyName,
     const char *separator);
+#endif
 
 // glob can have * as wildcard
 bool NamesMatchWithWildcard(const char *glob, const char *name);

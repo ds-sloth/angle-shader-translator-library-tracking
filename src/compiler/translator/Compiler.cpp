@@ -636,6 +636,7 @@ unsigned int TCompiler::getSharedMemorySize() const
     return sharedMemSize;
 }
 
+#if 0
 bool TCompiler::getShaderBinary(const ShHandle compilerHandle,
                                 const char *const shaderStrings[],
                                 size_t numStrings,
@@ -676,6 +677,7 @@ bool TCompiler::getShaderBinary(const ShHandle compilerHandle,
     *binaryOut = std::move(stream.getData());
     return true;
 }
+#endif
 
 bool TCompiler::validateAST(TIntermNode *root)
 {

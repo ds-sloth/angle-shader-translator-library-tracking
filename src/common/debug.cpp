@@ -33,7 +33,7 @@
 #include "common/Optional.h"
 #include "common/angleutils.h"
 #include "common/entry_points_enum_autogen.h"
-#include "common/system_utils.h"
+// #include "common/system_utils.h"
 
 namespace gl
 {
@@ -199,14 +199,14 @@ LogMessage::~LogMessage()
 
     if (mSeverity == LOG_FATAL)
     {
-        if (angle::IsDebuggerAttached())
-        {
-            angle::BreakDebugger();
-        }
-        else
-        {
+        // if (angle::IsDebuggerAttached())
+        // {
+        //     angle::BreakDebugger();
+        // }
+        // else
+        // {
             ANGLE_CRASH();
-        }
+        // }
     }
 }
 

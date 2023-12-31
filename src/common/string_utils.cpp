@@ -17,7 +17,7 @@
 #include <sstream>
 
 #include "common/platform.h"
-#include "common/system_utils.h"
+// #include "common/system_utils.h"
 
 namespace
 {
@@ -298,6 +298,7 @@ std::string ToCamelCase(const std::string &str)
     return result;
 }
 
+#if 0
 std::vector<std::string> GetStringsFromEnvironmentVarOrAndroidProperty(const char *varName,
                                                                        const char *propertyName,
                                                                        const char *separator)
@@ -314,6 +315,7 @@ std::vector<std::string> GetCachedStringsFromEnvironmentVarOrAndroidProperty(
     std::string environment = GetEnvironmentVarOrAndroidProperty(varName, propertyName);
     return SplitString(environment, separator, TRIM_WHITESPACE, SPLIT_WANT_NONEMPTY);
 }
+#endif
 
 // glob can have * as wildcard
 bool NamesMatchWithWildcard(const char *glob, const char *name)
