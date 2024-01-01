@@ -2348,7 +2348,7 @@ spirv::Blob SPIRVBuilder::getSpirv()
     spirv::WriteMemoryModel(&result, spv::AddressingModelLogical, spv::MemoryModelGLSL450);
 
     // - OpEntryPoint
-    constexpr gl::ShaderMap<spv::ExecutionModel> kExecutionModels = {
+    const gl::ShaderMap<spv::ExecutionModel> kExecutionModels = {
         {gl::ShaderType::Vertex, spv::ExecutionModelVertex},
         {gl::ShaderType::TessControl, spv::ExecutionModelTessellationControl},
         {gl::ShaderType::TessEvaluation, spv::ExecutionModelTessellationEvaluation},

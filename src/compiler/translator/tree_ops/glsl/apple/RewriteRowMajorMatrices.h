@@ -18,7 +18,7 @@ class TCompiler;
 class TIntermBlock;
 class TSymbolTable;
 
-#if ANGLE_ENABLE_GLSL && ANGLE_PLATFORM_APPLE
+#if ANGLE_ENABLE_GLSL && ANGLE_ENABLE_APPLE_QUIRKS
 [[nodiscard]] bool RewriteRowMajorMatrices(TCompiler *compiler,
                                            TIntermBlock *root,
                                            TSymbolTable *symbolTable);

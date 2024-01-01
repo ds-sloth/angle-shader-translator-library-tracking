@@ -17,7 +17,7 @@ namespace sh
 class TCompiler;
 class TIntermNode;
 
-#if ANGLE_ENABLE_GLSL && ANGLE_PLATFORM_APPLE
+#if ANGLE_ENABLE_GLSL && ANGLE_ENABLE_APPLE_QUIRKS
 [[nodiscard]] bool AddAndTrueToLoopCondition(TCompiler *compiler, TIntermNode *root);
 #else
 [[nodiscard]] ANGLE_INLINE bool AddAndTrueToLoopCondition(TCompiler *compiler, TIntermNode *root)

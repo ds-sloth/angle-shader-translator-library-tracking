@@ -834,6 +834,7 @@ Access ConvertBoolToUint(ConvertType convertType, OriginalAccess &o, ModifiedAcc
     switch (convertType)
     {
         case ConvertType::OriginalToModified:
+        default:
             return Access{coerce(m, o), m};
         case ConvertType::ModifiedToOriginal:
             return Access{o, coerce(o, m)};

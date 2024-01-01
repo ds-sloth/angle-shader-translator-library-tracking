@@ -34,6 +34,9 @@ char const *sh::toString(AddressSpace space)
         case AddressSpace::Thread:
             return "thread";
     }
+
+    UNREACHABLE();
+    return nullptr;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -110,6 +113,9 @@ bool TemplateArg::operator==(const TemplateArg &other) const
         case Kind::Type:
             return *mValue.t == *other.mValue.t;
     }
+
+    UNREACHABLE();
+    return false;
 }
 
 bool TemplateArg::operator<(const TemplateArg &other) const
@@ -135,6 +141,9 @@ bool TemplateArg::operator<(const TemplateArg &other) const
         case Kind::Type:
             return *mValue.t < *other.mValue.t;
     }
+
+    UNREACHABLE();
+    return false;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -214,6 +214,7 @@ bool sh::CanBePacked(TLayoutBlockStorage storage)
         case TLayoutBlockStorage::EbsStd140:
         case TLayoutBlockStorage::EbsStd430:
             return false;
+        default:
         case TLayoutBlockStorage::EbsUnspecified:
             UNREACHABLE();
             return false;
@@ -370,6 +371,7 @@ Layout sh::GlslLayoutOf(const TType &type,
         case TLayoutBlockStorage::EbsStd430:
             return CommonGlslLayoutOf(type, storage, matrixPacking, maskArray, 1);
         case TLayoutBlockStorage::EbsUnspecified:
+        default:
             UNREACHABLE();
             return Layout::Invalid();
     }
@@ -395,6 +397,7 @@ Layout sh::GlslLayoutOf(const TType &type,
         case TLayoutBlockStorage::EbsStd430:
             return CommonGlslStructLayoutOf(begin, end, storage, matrixPacking, maskArray, 1);
         case TLayoutBlockStorage::EbsUnspecified:
+        default:
             UNREACHABLE();
             return Layout::Invalid();
     }

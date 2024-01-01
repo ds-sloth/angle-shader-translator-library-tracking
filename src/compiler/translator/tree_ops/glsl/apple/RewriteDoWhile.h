@@ -20,7 +20,7 @@ class TCompiler;
 class TIntermNode;
 class TSymbolTable;
 
-#if ANGLE_ENABLE_GLSL && ANGLE_PLATFORM_APPLE
+#if ANGLE_ENABLE_GLSL && ANGLE_ENABLE_APPLE_QUIRKS
 [[nodiscard]] bool RewriteDoWhile(TCompiler *compiler,
                                   TIntermNode *root,
                                   TSymbolTable *symbolTable);

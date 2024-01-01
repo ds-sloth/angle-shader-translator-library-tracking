@@ -6,7 +6,7 @@
 
 #include <unordered_map>
 
-#include "common/system_utils.h"
+// #include "common/system_utils.h"
 #include "compiler/translator/msl/IntermRebuild.h"
 #include "compiler/translator/tree_ops/SimplifyLoopConditions.h"
 #include "compiler/translator/tree_ops/msl/SeparateCompoundExpressions.h"
@@ -660,10 +660,12 @@ bool sh::SeparateCompoundExpressions(TCompiler &compiler,
                                      IdGen &idGen,
                                      TIntermBlock &root)
 {
+#if 0
     if (angle::GetBoolEnvironmentVar("GMT_DISABLE_SEPARATE_COMPOUND_EXPRESSIONS"))
     {
         return true;
     }
+#endif
 
     if (!SimplifyLoopConditions(&compiler, &root, &compiler.getSymbolTable()))
     {

@@ -162,6 +162,9 @@ bool Pipeline::uses(const TVariable &var) const
         case Type::InstanceId:
             return Name(var) == Name(*BuiltInVariable::gl_InstanceID());
     }
+
+    UNREACHABLE();
+    return false;
 }
 
 Name Pipeline::getStructTypeName(Variant variant) const
@@ -284,6 +287,7 @@ static bool AllowPadding(Pipeline::Type type)
         case Type::Image:
         case Type::InstanceId:
         case Type::UniformBuffer:
+        default:
             return false;
     }
 }
@@ -312,6 +316,8 @@ static bool CompareBy(Compare op, const T &x, const T &y)
         case GT:
             return x > y;
     }
+    UNREACHABLE();
+    return false;
 }
 
 template <TBasicType BT, Compare Cmp, uint8_t MatchDim, uint8_t NewDim>
@@ -440,6 +446,7 @@ bool Pipeline::alwaysRequiresLocalVariableDeclarationInMain() const
         case Type::InvocationFragmentGlobals:
         case Type::Texture:
         case Type::InstanceId:
+        default:
             return true;
     }
 }
@@ -459,6 +466,7 @@ bool Pipeline::isPipelineOut() const
         case Type::Image:
         case Type::InstanceId:
         case Type::UniformBuffer:
+        default:
             return false;
 
         case Type::VertexOut:
@@ -481,6 +489,7 @@ AddressSpace Pipeline::externalAddressSpace() const
         case Type::InstanceId:
         case Type::FragmentOut:
         case Type::VertexOut:
+        default:
             return AddressSpace::Thread;
 
         case Type::UserUniforms:

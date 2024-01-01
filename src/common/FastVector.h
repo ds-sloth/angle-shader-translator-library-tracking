@@ -98,7 +98,7 @@ class FastVector final
     using const_iterator  = WrapIter<const T *>;
 
     // This class does not call destructors when resizing down (for performance reasons).
-    static_assert(std::is_trivially_destructible_v<value_type>);
+    static_assert(std::is_trivially_destructible<value_type>::value);
 
     FastVector();
     FastVector(size_type count, const value_type &value);
@@ -466,7 +466,7 @@ ANGLE_INLINE void FastVector<T, N, Storage>::resize(size_type count)
 {
     // Trivially constructible types will have undefined values when created therefore reusing
     // previous values after resize should not be a problem..
-    static_assert(std::is_trivially_constructible_v<value_type>,
+    static_assert(std::is_trivially_constructible<value_type>::value,
                   "For non trivially constructible types please use: resize(count, value), "
                   "resize_maybe_value_reuse(count), or resize_down(count) methods.");
     resize_impl(count);
@@ -475,7 +475,7 @@ ANGLE_INLINE void FastVector<T, N, Storage>::resize(size_type count)
 template <class T, size_t N, class Storage>
 ANGLE_INLINE void FastVector<T, N, Storage>::resize_maybe_value_reuse(size_type count)
 {
-    static_assert(!std::is_trivially_constructible_v<value_type>,
+    static_assert(!std::is_trivially_constructible<value_type>::value,
                   "This is a special method for non trivially constructible types. "
                   "Please use regular resize(count) method.");
     resize_impl(count);
@@ -484,7 +484,7 @@ ANGLE_INLINE void FastVector<T, N, Storage>::resize_maybe_value_reuse(size_type 
 template <class T, size_t N, class Storage>
 ANGLE_INLINE void FastVector<T, N, Storage>::resize_down(size_type count)
 {
-    static_assert(!std::is_trivially_constructible_v<value_type>,
+    static_assert(!std::is_trivially_constructible<value_type>::value,
                   "This is a special method for non trivially constructible types. "
                   "Please use regular resize(count) method.");
     ASSERT(count <= mSize);

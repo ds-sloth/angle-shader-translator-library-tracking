@@ -7,7 +7,7 @@
 #include <cctype>
 #include <map>
 
-#include "common/system_utils.h"
+// #include "common/system_utils.h"
 #include "compiler/translator/BaseTypes.h"
 #include "compiler/translator/ImmutableStringBuilder.h"
 #include "compiler/translator/SymbolTable.h"
@@ -2524,6 +2524,9 @@ bool GenMetalTraverser::visitLoop(Visit, TIntermLoop *loopNode)
         case TLoopType::ELoopDoWhile:
             return visitDoWhileLoop(loopNode);
     }
+
+    UNREACHABLE();
+    return false;
 }
 
 bool GenMetalTraverser::visitForLoop(TIntermLoop *loopNode)
@@ -2692,6 +2695,7 @@ bool sh::EmitMetal(TCompiler &compiler,
 
     {
         ++emitMetalCallCount;
+#if 0
         std::string filenameProto = angle::GetEnvironmentVar("GMD_FIXED_EMIT");
         if (!filenameProto.empty())
         {
@@ -2727,6 +2731,7 @@ bool sh::EmitMetal(TCompiler &compiler,
 
             return true;
         }
+#endif
     }
 
     out << "\n\n";
@@ -2737,7 +2742,7 @@ bool sh::EmitMetal(TCompiler &compiler,
     }
 
     {
-#if defined(ANGLE_ENABLE_ASSERTS)
+#if defined(ANGLE_ENABLE_ASSERTS) && 0
         DebugSink outWrapper(out, angle::GetBoolEnvironmentVar("GMD_STDOUT"));
         outWrapper.watch(angle::GetEnvironmentVar("GMD_WATCH_STRING"));
 #else
