@@ -163,7 +163,7 @@ void RewriteIndexExpression(TCompiler *compiler,
     ASSERT(valid);
 }
 
-// Given an expression such as the following:
+/* Given an expression such as the following:
 //
 //                                                    EOpIndexDirectStruct (sampler)
 //                                                    /                  \
@@ -212,7 +212,7 @@ void RewriteIndexExpression(TCompiler *compiler,
 //            EOpIndexDirectStruct   index 1
 //            /                  \
 //     Uniform Struct     mapped field index
-//
+*/
 TIntermTyped *RewriteModifiedStructFieldSelectionExpression(
     TCompiler *compiler,
     TIntermBinary *node,

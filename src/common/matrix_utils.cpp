@@ -29,13 +29,13 @@ Mat4::Mat4(const Matrix<float> generalMatrix)
 
 Mat4::Mat4(const std::vector<float> &elements)
 {
-    std::copy(elements.begin(), std::min(elements.end(), elements.begin() + std::size(mElements)),
+    std::copy(elements.begin(), std::min(elements.end(), elements.begin() + mElements.size()),
               mElements.data());
 }
 
 Mat4::Mat4(const float *elements)
 {
-    std::copy(elements, elements + std::size(mElements), mElements.data());
+    std::copy(elements, elements + mElements.size(), mElements.data());
 }
 
 Mat4::Mat4(float m00,

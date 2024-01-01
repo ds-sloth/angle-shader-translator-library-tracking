@@ -166,7 +166,7 @@ bool Finalize()
 void InitBuiltInResources(ShBuiltInResources *resources)
 {
     // Make comparable.
-    memset(resources, 0, sizeof(*resources));
+    memset((void*)resources, 0, sizeof(*resources));
 
     // Constants.
     resources->MaxVertexAttribs             = 8;
@@ -1049,30 +1049,30 @@ const char *InterpolationTypeToString(InterpolationType type)
 
 ShCompileOptions::ShCompileOptions()
 {
-    memset(this, 0, sizeof(*this));
+    memset((void*)this, 0, sizeof(*this));
 }
 
 ShCompileOptions::ShCompileOptions(const ShCompileOptions &other)
 {
-    memcpy(this, &other, sizeof(*this));
+    memcpy((void*)this, &other, sizeof(*this));
 }
 ShCompileOptions &ShCompileOptions::operator=(const ShCompileOptions &other)
 {
-    memcpy(this, &other, sizeof(*this));
+    memcpy((void*)this, &other, sizeof(*this));
     return *this;
 }
 
 ShBuiltInResources::ShBuiltInResources()
 {
-    memset(this, 0, sizeof(*this));
+    memset((void*)this, 0, sizeof(*this));
 }
 
 ShBuiltInResources::ShBuiltInResources(const ShBuiltInResources &other)
 {
-    memcpy(this, &other, sizeof(*this));
+    memcpy((void*)this, &other, sizeof(*this));
 }
 ShBuiltInResources &ShBuiltInResources::operator=(const ShBuiltInResources &other)
 {
-    memcpy(this, &other, sizeof(*this));
+    memcpy((void*)this, &other, sizeof(*this));
     return *this;
 }

@@ -78,7 +78,7 @@ class PackedEnumMap
 
     constexpr PackedEnumMap() = default;
 
-    constexpr PackedEnumMap(std::initializer_list<InitPair> init) : mPrivateData{}
+    PackedEnumMap(std::initializer_list<InitPair> init) : mPrivateData{}
     {
         // We use a for loop instead of range-for to work around a limitation in MSVC.
         for (const InitPair *it = init.begin(); it != init.end(); ++it)

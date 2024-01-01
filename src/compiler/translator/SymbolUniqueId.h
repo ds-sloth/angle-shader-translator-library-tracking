@@ -28,11 +28,16 @@ class TSymbolUniqueId
 
     constexpr int get() const { return mId; }
 
+    static constexpr TSymbolUniqueId at_symtab(int staticId)
+    {
+      return TSymbolUniqueId(staticId);
+    }
+
   private:
     friend class TSymbolTable;
     explicit TSymbolUniqueId(TSymbolTable *symbolTable);
 
-    friend class BuiltInId;
+    // friend class BuiltInId;
     constexpr TSymbolUniqueId(int staticId) : mId(staticId) {}
 
     int mId;

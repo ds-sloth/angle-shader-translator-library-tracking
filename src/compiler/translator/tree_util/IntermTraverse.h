@@ -236,7 +236,7 @@ class TIntermTraverser : angle::NonCopyable
     // expression inside those nodes.  Note that due to the way these replacements work, the AST
     // transformation should not attempt to replace the actual index node itself, but only a subnode
     // of that.
-    //
+    /*
     //                    Node 1                                                Node 6
     //                 EOpIndexDirect                                        EOpIndexDirect
     //                /          \                                              /       \
@@ -252,7 +252,7 @@ class TIntermTraverser : angle::NonCopyable
     //    to this function.                                     is changed.  This is why a
     //                                                          replacment attempt for this node
     //                                                          itself will not work.
-    //
+    */
     void queueAccessChainReplacement(TIntermTyped *replacement);
 
     const bool preVisit;

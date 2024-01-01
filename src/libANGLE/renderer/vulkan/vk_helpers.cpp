@@ -1517,7 +1517,7 @@ template <class DerivedT>
 angle::Result CommandBufferHelperCommon::attachCommandPoolImpl(Context *context,
                                                                SecondaryCommandPool *commandPool)
 {
-    if constexpr (!DerivedT::ExecutesInline())
+    if (!DerivedT::ExecutesInline())
     {
         DerivedT *derived = static_cast<DerivedT *>(this);
         ASSERT(commandPool != nullptr);
@@ -1536,13 +1536,13 @@ angle::Result CommandBufferHelperCommon::detachCommandPoolImpl(
     Context *context,
     SecondaryCommandPool **commandPoolOut)
 {
-    if constexpr (!DerivedT::ExecutesInline())
+    if (!DerivedT::ExecutesInline())
     {
         DerivedT *derived = static_cast<DerivedT *>(this);
         ASSERT(mCommandPool != nullptr);
         ASSERT(derived->getCommandBuffer().valid());
 
-        if constexpr (!kIsRenderPassBuffer)
+        if (!kIsRenderPassBuffer)
         {
             ASSERT(!derived->getCommandBuffer().empty());
             ANGLE_TRY(derived->endCommandBuffer(context));
@@ -1558,7 +1558,7 @@ angle::Result CommandBufferHelperCommon::detachCommandPoolImpl(
 template <class DerivedT>
 void CommandBufferHelperCommon::releaseCommandPoolImpl()
 {
-    if constexpr (!DerivedT::ExecutesInline())
+    if (!DerivedT::ExecutesInline())
     {
         DerivedT *derived = static_cast<DerivedT *>(this);
         ASSERT(mCommandPool != nullptr);
@@ -1577,7 +1577,7 @@ void CommandBufferHelperCommon::releaseCommandPoolImpl()
 template <class DerivedT>
 void CommandBufferHelperCommon::attachAllocatorImpl(SecondaryCommandMemoryAllocator *allocator)
 {
-    if constexpr (DerivedT::ExecutesInline())
+    if (DerivedT::ExecutesInline())
     {
         auto &commandBuffer = static_cast<DerivedT *>(this)->getCommandBuffer();
         mCommandAllocator.attachAllocator(allocator);
@@ -1589,7 +1589,7 @@ template <class DerivedT>
 SecondaryCommandMemoryAllocator *CommandBufferHelperCommon::detachAllocatorImpl()
 {
     SecondaryCommandMemoryAllocator *result = nullptr;
-    if constexpr (DerivedT::ExecutesInline())
+    if (DerivedT::ExecutesInline())
     {
         auto &commandBuffer = static_cast<DerivedT *>(this)->getCommandBuffer();
         commandBuffer.detachAllocator(mCommandAllocator.getAllocator());

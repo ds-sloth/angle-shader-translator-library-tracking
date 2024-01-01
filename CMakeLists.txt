@@ -1,7 +1,11 @@
-# Copyright 2013 The ANGLE Project Authors.All rights reserved.
+# Copyright 2013 The ANGLE Project Authors. All rights reserved.
 # CMake build for the shader translator copyright 2023 ds-sloth
 # Use of this source code is governed by a BSD - style license that can be
 # found in the LICENSE file.
+
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(angle_translator STATIC
             EXCLUDE_FROM_ALL

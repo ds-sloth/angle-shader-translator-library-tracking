@@ -426,7 +426,7 @@ struct ShaderDumpHeader
     uint8_t plsCompileOptions[32];
     uint8_t padding[20];
 };
-static_assert(sizeof(ShaderDumpHeader) == 128);
+static_assert(sizeof(ShaderDumpHeader) == 128, "ShaderDumpHeader struct not packed as expected");
 
 }  // namespace sh
 

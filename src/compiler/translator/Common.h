@@ -257,6 +257,7 @@ T InitializeStream()
 
 }  // namespace sh
 
+#if 0
 namespace std
 {
 template <>
@@ -269,5 +270,6 @@ struct hash<sh::TString>
     }
 };
 }  // namespace std
+#endif
 
 #endif  // COMPILER_TRANSLATOR_COMMON_H_

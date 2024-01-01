@@ -2295,9 +2295,9 @@ void TParseContext::checkPixelLocalStorageBindingIsValid(const TSourceLoc &locat
         // flush the queue of potential errors once mPLSBindings isn't empty.
         if (!mPLSPotentialErrors.empty())
         {
-            for (const auto &[loc, op] : mPLSPotentialErrors)
+            for (const auto &loc_op_pair : mPLSPotentialErrors)
             {
-                errorIfPLSDeclared(loc, op);
+                errorIfPLSDeclared(std::get<0>(loc_op_pair), std::get<1>(loc_op_pair));
             }
             mPLSPotentialErrors.clear();
         }

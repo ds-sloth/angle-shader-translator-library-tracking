@@ -301,7 +301,7 @@ class RewritePLSTraverser : public TIntermTraverser
         if (var->getType().getNominalSize() != n)
         {
             ASSERT(var->getType().getNominalSize() > n);
-            TVector swizzleOffsets{0, 1, 2, 3};
+            TVector<int> swizzleOffsets{0, 1, 2, 3};
             swizzleOffsets.resize(n);
             swizzled = new TIntermSwizzle(swizzled, swizzleOffsets);
         }

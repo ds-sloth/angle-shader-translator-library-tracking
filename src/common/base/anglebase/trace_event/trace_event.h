@@ -713,7 +713,7 @@ static inline angle::TraceEventHandle addTraceEvent(angle::PlatformMethods *plat
                                                     unsigned char flags,
                                                     const Args... args)
 {
-    if constexpr (sizeof...(Args) == 0)
+    if (sizeof...(Args) == 0)
     {
         return TRACE_EVENT_API_ADD_TRACE_EVENT(platform, phase, categoryEnabled, name, id,
                                                zeroNumArgs, 0, 0, 0, flags);

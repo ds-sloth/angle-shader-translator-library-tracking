@@ -101,7 +101,7 @@ void RewriteIndexExpression(TCompiler *compiler,
     ASSERT(valid);
 }
 
-// Given an expression such as the following:
+/* Given an expression such as the following:
 //
 //                                              EOpIndex(In)Direct (opaque uniform)
 //                                                    /           \
@@ -118,7 +118,7 @@ void RewriteIndexExpression(TCompiler *compiler,
 //          EOpIndex(In)Direct
 //            /        \
 //        uniform    In*Pn + ... + I2*P2 + I1*P1
-//
+*/
 TIntermTyped *RewriteArrayOfArraySubscriptExpression(TCompiler *compiler,
                                                      TIntermBinary *node,
                                                      const UniformMap &uniformMap)

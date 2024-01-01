@@ -112,7 +112,7 @@ struct ClampedSubOp<
     template <typename V = result_type>
     static constexpr V Do(T x, U y)
     {
-        if constexpr (ClampedSubFastOp<T, U>::is_supported)
+        if (ClampedSubFastOp<T, U>::is_supported)
             return ClampedSubFastOp<T, U>::template Do<V>(x, y);
 
         static_assert(
@@ -139,7 +139,7 @@ struct ClampedMulOp<
     template <typename V = result_type>
     static constexpr V Do(T x, U y)
     {
-        if constexpr (ClampedMulFastOp<T, U>::is_supported)
+        if (ClampedMulFastOp<T, U>::is_supported)
             return ClampedMulFastOp<T, U>::template Do<V>(x, y);
 
         V result          = {};

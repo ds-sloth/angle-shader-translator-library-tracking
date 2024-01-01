@@ -565,7 +565,7 @@ std::ostream &operator<<(std::ostream &os, TessEvaluationType value)
 
 const char *ShaderTypeToString(ShaderType shaderType)
 {
-    constexpr ShaderMap<const char *> kShaderTypeNameMap = {
+    const ShaderMap<const char *> kShaderTypeNameMap = {
         {ShaderType::Vertex, "Vertex"},
         {ShaderType::TessControl, "Tessellation control"},
         {ShaderType::TessEvaluation, "Tessellation evaluation"},
