@@ -322,9 +322,9 @@ add_library(angle_translator STATIC
     src/common/SynchronizedValue.h
     src/common/WorkerThread.h
     src/common/aligned_memory.h
-    src/common/android_util.h
+#    src/common/android_util.h
     src/common/angleutils.h
-    src/common/apple_platform_utils.h
+#    src/common/apple_platform_utils.h
     src/common/backtrace_utils.h
     src/common/base/anglebase/base_export.h
     src/common/base/anglebase/containers/mru_cache.h
@@ -370,7 +370,7 @@ add_library(angle_translator STATIC
     src/common/RingBufferAllocator.cpp
     src/common/WorkerThread.cpp
     src/common/aligned_memory.cpp
-    src/common/android_util.cpp
+#    src/common/android_util.cpp
     src/common/angleutils.cpp
     src/common/base/anglebase/sha1.cc
     src/common/debug.cpp
