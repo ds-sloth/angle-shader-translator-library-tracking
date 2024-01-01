@@ -56,6 +56,7 @@ set(_uses_spirv OFF)
 # Frontend support:
 if(ANGLE_ENABLE_SOURCE_GLSL)
   list(APPEND sources ${angle_translator_glsl_symbol_table_sources})
+  list(APPEND defines ANGLE_ENABLE_SOURCE_GLSL)
 else()
   list(APPEND sources ${angle_translator_essl_symbol_table_sources})
 endif()

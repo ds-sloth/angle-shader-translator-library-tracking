@@ -446,7 +446,17 @@ void usage()
 {
     // clang-format off
     printf(
-        "Usage: translate [-i -o -u -l -b=e -b=g -b=h9 -x=i -x=d] file1 file2 ...\n"
+        "Usage: translate [-i -o -u -l "
+#ifdef ANGLE_ENABLE_ESSL
+            "-b=e "
+#endif
+#ifdef ANGLE_ENABLE_GLSL
+            "-b=g "
+#endif
+#ifdef ANGLE_ENABLE_HLSL
+            "-b=h9 "
+#endif
+        "-x=i -x=d] file1 file2 ...\n"
         "Where: filename : filename ending in .frag*, .vert*, .comp*, .geom*, .tcs* or .tes*\n"
         "       -i       : print intermediate tree\n"
         "       -o       : print translated code\n"
@@ -458,16 +468,28 @@ void usage()
         "       -s=w     : use WebGL 1.0 spec\n"
         "       -s=wn    : use WebGL 1.0 spec with no highp support in fragment shaders\n"
         "       -s=w2    : use WebGL 2.0 spec\n"
+#ifdef ANGLE_ENABLE_SOURCE_GLSL
         "       -s=d     : use Desktop Core spec (in development)\n"
         "       -s=dc    : use Desktop Compatibility spec (in development)\n"
+#endif
+#ifdef ANGLE_ENABLE_ESSL
         "       -b=e     : output GLSL ES code (this is by default)\n"
+#endif
+#ifdef ANGLE_ENABLE_GLSL
         "       -b=g     : output GLSL code (compatibility profile)\n"
         "       -b=g[NUM]: output GLSL code (NUM can be 130, 140, 150, 330, 400, 410, 420, 430, "
         "440, 450)\n"
+#endif
+#ifdef ANGLE_ENABLE_VULKAN
         "       -b=v     : output Vulkan SPIR-V code\n"
+#endif
+#ifdef ANGLE_ENABLE_HLSL
         "       -b=h9    : output HLSL9 code\n"
         "       -b=h11   : output HLSL11 code\n"
+#endif
+#ifdef ANGLE_ENABLE_METAL
         "       -b=m     : output MSL code (direct)\n"
+#endif
         "       -x=i     : enable GL_OES_EGL_image_external\n"
         "       -x=d     : enable GL_OES_EGL_standard_derivatives\n"
         "       -x=r     : enable ARB_texture_rectangle\n"
