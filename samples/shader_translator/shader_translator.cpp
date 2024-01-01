@@ -87,8 +87,8 @@ int main(int argc, char *argv[])
     ShHandle geometryCompiler       = 0;
     ShHandle tessEvalCompiler       = 0;
     ShHandle tessControlCompiler    = 0;
-    ShShaderSpec spec               = SH_GLES3_SPEC;
-    ShShaderOutput output           = SH_GLSL_330_CORE_OUTPUT;
+    ShShaderSpec spec               = SH_GLES2_SPEC;
+    ShShaderOutput output           = SH_ESSL_OUTPUT;
 
     sh::Initialize();
 
@@ -451,8 +451,8 @@ void usage()
         "       -i       : print intermediate tree\n"
         "       -o       : print translated code\n"
         "       -u       : print active attribs, uniforms, varyings and program outputs\n"
-        "       -s=e2    : use GLES2 spec\n"
-        "       -s=e3    : use GLES3 spec (this is by default)\n"
+        "       -s=e2    : use GLES2 spec (this is by default)\n"
+        "       -s=e3    : use GLES3 spec\n"
         "       -s=e31   : use GLES31 spec (in development)\n"
         "       -s=e32   : use GLES32 spec (in development)\n"
         "       -s=w     : use WebGL 1.0 spec\n"
@@ -460,14 +460,14 @@ void usage()
         "       -s=w2    : use WebGL 2.0 spec\n"
         "       -s=d     : use Desktop Core spec (in development)\n"
         "       -s=dc    : use Desktop Compatibility spec (in development)\n"
-//        "       -b=e     : output GLSL ES code (this is by default)\n"
+        "       -b=e     : output GLSL ES code (this is by default)\n"
         "       -b=g     : output GLSL code (compatibility profile)\n"
-        "       -b=g[NUM]: output GLSL code (NUM can be 130, 140, 150, 330 - default, 400, 410, 420, 430, "
+        "       -b=g[NUM]: output GLSL code (NUM can be 130, 140, 150, 330, 400, 410, 420, 430, "
         "440, 450)\n"
-//        "       -b=v     : output Vulkan SPIR-V code\n"
-//        "       -b=h9    : output HLSL9 code\n"
-//        "       -b=h11   : output HLSL11 code\n"
-//        "       -b=m     : output MSL code (direct)\n"
+        "       -b=v     : output Vulkan SPIR-V code\n"
+        "       -b=h9    : output HLSL9 code\n"
+        "       -b=h11   : output HLSL11 code\n"
+        "       -b=m     : output MSL code (direct)\n"
         "       -x=i     : enable GL_OES_EGL_image_external\n"
         "       -x=d     : enable GL_OES_EGL_standard_derivatives\n"
         "       -x=r     : enable ARB_texture_rectangle\n"
