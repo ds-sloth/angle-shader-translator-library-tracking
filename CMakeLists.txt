@@ -11,8 +11,8 @@ add_library(angle_translator STATIC
             EXCLUDE_FROM_ALL
 
 # angle_translator_exported_headers = [
-    include/GLSLANG/ShaderLang.h
-    include/GLSLANG/ShaderVars.h
+    export/GLSLANG/ShaderLang.h
+    export/GLSLANG/ShaderVars.h
 #  src/compiler/translator/blocklayout.h
 #  src/compiler/translator/hlsl/blocklayoutHLSL.h
 
@@ -394,9 +394,10 @@ add_library(angle_translator STATIC
 target_compile_definitions(angle_translator PRIVATE ANGLE_ENABLE_GLSL)
 
 target_include_directories(angle_translator PRIVATE src src/common/base src/common/third_party/xxhash)
-target_include_directories(angle_translator PUBLIC include)
+target_include_directories(angle_translator PUBLIC export)
 
 
 add_executable(shader_translator_sample EXCLUDE_FROM_ALL samples/shader_translator/shader_translator.cpp)
+target_include_directories(shader_translator_sample PRIVATE include)
 
 target_link_libraries(shader_translator_sample angle_translator)
