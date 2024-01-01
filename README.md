@@ -1,3 +1,26 @@
+# A portable GPLv3 C++14 distribution of the ANGLE shader translator library supporting CMake
+
+This repository includes only the portions of ANGLE required to build the ANGLE shader translator
+library. It also modifies portions of the source code to allow a more portable build (for instance,
+removing most platform-dependent functionality) and to allow the repository to be built against the
+C++14 standard.
+
+The ANGLE source code in this repository is copyrighted by The ANGLE Project Authors and licensed
+under a BSD-like license. However, the CMake scripts in this repository as well as the modifications
+to the source code to allow the more portable build provided here are copyrighted by ds-sloth and
+licensed under the GPLv3 (which includes no exceptions for static or dynamic linking). These scripts
+and modifications are not licensed to be linked with non-GPLv3 software.
+
+I am not able to fix and do not intend to fix any bugs in the ANGLE shader translator itself.
+However, situations where this distribution of the shader translator differs in its output from the
+original distribution should be considered defects of this distribution and I welcome any issues
+reporting such defects. Such issues should include a test case demonstrating a difference between
+this distribution of `shader_translator_sample` and the equivalent upstream build.
+
+I may synchronize this distribution from time to time with the upstream ANGLE project, particularly
+if any software utilizing it notices bugs that have been fixed upstream. The current revision is
+synchronized with upstream commit 09c69b5b5cb987ff236fe11929a780a116a7a8bd.
+
 # ANGLE - Almost Native Graphics Layer Engine
 
 The goal of ANGLE is to allow users of multiple operating systems to seamlessly run WebGL and other
