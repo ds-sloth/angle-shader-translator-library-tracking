@@ -7,16 +7,16 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-add_library(angle_translator STATIC
+add_library(angle_shader_translator STATIC
             EXCLUDE_FROM_ALL
 
-# angle_translator_exported_headers = [
+# angle_shader_translator_exported_headers = [
     export/GLSLANG/ShaderLang.h
     export/GLSLANG/ShaderVars.h
 #  src/compiler/translator/blocklayout.h
 #  src/compiler/translator/hlsl/blocklayoutHLSL.h
 
-# angle_translator_sources = [
+# angle_shader_translator_sources = [
     include/EGL/egl.h
     include/EGL/eglext.h
     include/EGL/eglplatform.h
@@ -249,15 +249,15 @@ add_library(angle_translator STATIC
     src/compiler/translator/util.cpp
     src/compiler/translator/util.h
 
-# angle_translator_glsl_base_sources = [
+# angle_shader_translator_glsl_base_sources = [
     src/compiler/translator/glsl/OutputGLSLBase.cpp
     src/compiler/translator/glsl/OutputGLSLBase.h
 
-# angle_translator_glsl_and_vulkan_base_sources = [
+# angle_shader_translator_glsl_and_vulkan_base_sources = [
     src/compiler/translator/glsl/OutputGLSL.cpp
     src/compiler/translator/glsl/OutputGLSL.h
 
-# angle_translator_glsl_sources = [
+# angle_shader_translator_glsl_sources = [
     src/compiler/translator/glsl/BuiltInFunctionEmulatorGLSL.cpp
     src/compiler/translator/glsl/BuiltInFunctionEmulatorGLSL.h
     src/compiler/translator/glsl/ExtensionGLSL.cpp
@@ -269,7 +269,7 @@ add_library(angle_translator STATIC
     src/compiler/translator/tree_ops/glsl/ScalarizeVecAndMatConstructorArgs.cpp
     src/compiler/translator/tree_ops/glsl/UseInterfaceBlockFields.cpp
 
-# angle_translator_glsl_apple_sources = [
+# angle_shader_translator_glsl_apple_sources = [
 #  src/compiler/translator/tree_ops/glsl/apple/AddAndTrueToLoopCondition.cpp
 #  src/compiler/translator/tree_ops/glsl/apple/RewriteDoWhile.cpp
 #  src/compiler/translator/tree_ops/glsl/apple/RewriteRowMajorMatrices.cpp
@@ -391,13 +391,13 @@ add_library(angle_translator STATIC
     src/common/third_party/xxhash/xxhash.c
 )
 
-target_compile_definitions(angle_translator PRIVATE ANGLE_ENABLE_GLSL)
+target_compile_definitions(angle_shader_translator PRIVATE ANGLE_ENABLE_GLSL)
 
-target_include_directories(angle_translator PRIVATE src src/common/base src/common/third_party/xxhash)
-target_include_directories(angle_translator PUBLIC export)
+target_include_directories(angle_shader_translator PRIVATE include src src/common/base src/common/third_party/xxhash)
+target_include_directories(angle_shader_translator PUBLIC export)
 
 
 add_executable(shader_translator_sample EXCLUDE_FROM_ALL samples/shader_translator/shader_translator.cpp)
 target_include_directories(shader_translator_sample PRIVATE include)
 
-target_link_libraries(shader_translator_sample angle_translator)
+target_link_libraries(shader_translator_sample angle_shader_translator)
